@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-u0$=1ra=8n^2biz-7!k^3uw0ujckhlk)2-o*w7ax5t@wtj!mtg
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["royal-puritan-foundation.onrender.com"]
 
 
 # Application definition
@@ -131,7 +131,7 @@ LOGIN_REDIRECT_URL = '/'
 
 LOGIN_REDIRECT_URL = "/"
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-CSRF_TRUSTED_ORIGINS = ["https://7yz-persevering-lavoisier.circumeo-apps.net"]
+CSRF_TRUSTED_ORIGINS = ["https://7yz-persevering-lavoisier.circumeo-apps.net", "royal-puritan-foundation.onrender.com"]
 
 
 MEDIA_URL = '/media/'
