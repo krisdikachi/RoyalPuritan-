@@ -131,7 +131,7 @@ LOGIN_REDIRECT_URL = '/'
 
 LOGIN_REDIRECT_URL = "/"
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-CSRF_TRUSTED_ORIGINS = ["https://7yz-persevering-lavoisier.circumeo-apps.net", "royal-puritan-foundation.onrender.com"]
+CSRF_TRUSTED_ORIGINS = ["https://7yz-persevering-lavoisier.circumeo-apps.net", "https://royal-puritan-foundation.onrender.com"]
 
 
 MEDIA_URL = '/media/'
