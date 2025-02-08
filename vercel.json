@@ -1,0 +1,17 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "RoyalPuritan/wsgi.py",
+        "use": "@vercel/python",
+        "config": { "distDir": "staticfiles" }
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "RoyalPuritan/wsgi.py"
+      }
+    ]
+  }
+  

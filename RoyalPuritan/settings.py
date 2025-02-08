@@ -45,6 +45,7 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'django_vercel.middleware.VercelStaticFilesMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -143,3 +144,6 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
 BASE_DIR / 'static'
 ]
+
+STATICFILES_STORAGE = 'django_vercel.storage.VercelStaticFilesStorage'
+DEFAULT_FILE_STORAGE = 'django_vercel.storage.VercelMediaStorage'
