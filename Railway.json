@@ -6,7 +6,7 @@
     "deploy": {
       "runtime": "V2",
       "numReplicas": 1,
-      "startCommand": "web: gunicorn RoyalPuritan.wsgi --log-file -",
+      "startCommand": "python manage.py migrate && python manage.py collectstatic --noinput && gunicorn mysite.wsgi",
       "sleepApplication": false,
       "multiRegionConfig": {
         "us-west1": {
