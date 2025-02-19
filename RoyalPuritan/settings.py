@@ -12,9 +12,6 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 import os
 from pathlib import Path
 
-from dotenv import load_dotenv
-
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -26,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-u0$=1ra=8n^2biz-7!k^3uw0ujckhlk)2-o*w7ax5t@wtj!mtg'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = [".vercel.app"]
+ALLOWED_HOSTS = ["royal-puritan-foundation.onrender.com"]
 
 
 # Application definition
@@ -48,7 +45,6 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
-    'django_vercel.middleware.VercelStaticFilesMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -147,6 +143,3 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
 BASE_DIR / 'static'
 ]
-
-STATICFILES_STORAGE = 'django_vercel.storage.VercelStaticFilesStorage'
-DEFAULT_FILE_STORAGE = 'django_vercel.storage.VercelMediaStorage'
