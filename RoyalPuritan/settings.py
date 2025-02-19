@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-u0$=1ra=8n^2biz-7!k^3uw0ujckhlk)2-o*w7ax5t@wtj!mtg
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["royal-puritan-foundation.onrender.com"]
+ALLOWED_HOSTS = ["royal-puritan-production.up.railway.app", "localhost", "127.0.0.1", "royal-puritan-foundation.onrender.com"]
 
 
 # Application definition
