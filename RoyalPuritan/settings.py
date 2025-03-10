@@ -29,8 +29,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 CSRF_TRUSTED_ORIGINS = []
 
-git config --global push.default matching# Application definition
-
+# Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
