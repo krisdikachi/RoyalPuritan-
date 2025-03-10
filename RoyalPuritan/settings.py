@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-u0$=1ra=8n^2biz-7!k^3uw0ujckhlk)2-o*w7ax5t@wtj!mtg
 DEBUG = True
 
 ALLOWED_HOSTS = ["royalpuritan-production.up.railway.app", "https://royalpuritan-production.up.railway.app", '127.0.0.1']
-CSRF_TRUSTED_ORIGINS = ["https://royalpuritan-production.up.railway.app", "https://royalpuritan-production.up.railway.app"]
+CSRF_TRUSTED_ORIGINS = [ "https://royalpuritan-production.up.railway.app"]
 
 # Application definition
 INSTALLED_APPS = [
