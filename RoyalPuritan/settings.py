@@ -11,12 +11,13 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
 from pathlib import Path
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 PORT = os.getenv("PORT", "8080")  # Default to 8080 if PORT is not set
-
+load_dotenv()
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
@@ -26,8 +27,8 @@ SECRET_KEY = 'django-insecure-u0$=1ra=8n^2biz-7!k^3uw0ujckhlk)2-o*w7ax5t@wtj!mtg
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["royalpuritan-production.up.railway.app", "https://royalpuritan-production.up.railway.app"]
-CSRF_TRUSTED_ORIGINS = ["royalpuritan-production.up.railway.app", "https://royalpuritan-production.up.railway.app"]
+ALLOWED_HOSTS = ["royalpuritan-production.up.railway.app", "https://royalpuritan-production.up.railway.app", '127.0.0.1']
+CSRF_TRUSTED_ORIGINS = ["https://royalpuritan-production.up.railway.app", "https://royalpuritan-production.up.railway.app"]
 
 # Application definition
 INSTALLED_APPS = [
@@ -80,8 +81,14 @@ WSGI_APPLICATION = 'RoyalPuritan.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / "db.sqlite3",
+        
+  'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD':os.environ['DB_PASSWORD'],
+        'HOST': 'shuttle.proxy.rlwy.net',
+        'PORT': '26539',
+
     }
 }
 
