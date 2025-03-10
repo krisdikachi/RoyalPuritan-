@@ -1,1 +1,2 @@
 web: gunicorn RoyalPuritan.wsgi --log-file -
+web: manage.py migrate && gunicorn RoyalPuritan.wsg

@@ -15,7 +15,6 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-PORT = os.getenv("PORT", "8080")  # Default to 8080 if PORT is not set
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -24,12 +23,12 @@ PORT = os.getenv("PORT", "8080")  # Default to 8080 if PORT is not set
 SECRET_KEY = 'django-insecure-u0$=1ra=8n^2biz-7!k^3uw0ujckhlk)2-o*w7ax5t@wtj!mtg'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
-CSRF_TRUSTED_ORIGINS = []
+ALLOWED_HOSTS = ["royal-puritan-foundation.onrender.com"]
 
-git config --global push.default matching# Application definition
+
+# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -39,8 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'RoyalWebpage.apps.RoyalwebpageConfig',
-    'whitenoise.runserver_nostatic',
-
 ]
 
 MIDDLEWARE = [
@@ -51,8 +48,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',   
-
 ]
 
 ROOT_URLCONF = 'RoyalPuritan.urls'
@@ -82,11 +77,19 @@ WSGI_APPLICATION = 'RoyalPuritan.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / "db.sqlite3",
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
-
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.environ["PGDATABASE"],
+        'USER': os.environ["PGUSER"],
+        'PASSWORD': os.environ["PGPASSWORD"],
+        'HOST': os.environ["PGHOST"],
+        'PORT': os.environ["PGPORT"],
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -137,14 +140,13 @@ LOGIN_REDIRECT_URL = '/'
 
 LOGIN_REDIRECT_URL = "/"
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+CSRF_TRUSTED_ORIGINS = ["https://7yz-persevering-lavoisier.circumeo-apps.net", "https://royal-puritan-foundation.onrender.com"]
 
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
